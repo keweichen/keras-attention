@@ -272,7 +272,7 @@ class AttentionDecoder(Recurrent):
         # new hidden state:
         st = (1-zt)*stm + zt * s_tp
 
-        yt = activations.softmax(
+        yt = self.activation(
             K.dot(ytm, self.W_o)
             + K.dot(stm, self.U_o)
             + K.dot(context, self.C_o)
